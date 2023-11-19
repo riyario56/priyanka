@@ -1,58 +1,87 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
+
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <title>Form Validation using JavaScript</title>
+    <title>Calculator</title>
+
+    <style>
+        button {
+            width: 100%;
+        }
+        
+        table {
+            background-color: brown;
+        }
+    </style>
 </head>
+
 <body>
-    <div class="container">
-        <div class="header">
-            <h2>Registration Form</h2>
-        </div>
-        <form action="" class="form">
-            <div class="form-group">
-                <label for="">UserName : </label>
-                <input type="text" placeholder="username" id = "username" autocomplete="off">
-                <i class="ion-ios-checkmark"></i>
-                <i class="ion-android-alert"></i>
-                <span></span>
-            </div>
-            <div class="form-group">
-                <label for="">Email : </label>
-                <input type="text" placeholder="email" id = "email" autocomplete="off">
-                <i class="ion-ios-checkmark"></i>
-                <i class="ion-android-alert"></i>
-                <span></span>
-            </div>
-            <div class="form-group">
-                <label for="">Phone Number : </label>
-                <input type="text" placeholder="phonenumber" id = "phonenumber" autocomplete="off">
-                <i class="ion-ios-checkmark"></i>
-                <i class="ion-android-alert"></i>
-                <span></span>
-            </div>
-            <div class="form-group">
-                <label for="">Password : </label>
-                <input type="password" placeholder="password" id = "password" autocomplete="off">
-                <i class="ion-ios-checkmark"></i>
-                <i class="ion-android-alert"></i>
-                <span></span>
-            </div>
-            <div class="form-group">
-                <label for="">Confirm Password : </label>
-                <input type="password" placeholder="confirm password" id = "confirmpassword" autocomplete="off">
-                <i class="ion-ios-checkmark"></i>
-                <i class="ion-android-alert"></i>
-                <span></span>
-            </div>
-            <button id = 'submit'>Submit</button>
-        </form>
-    </div>
-    <script src="app.js"></script>
+
+    <main>
+
+        <table border="1">
+            <tr>
+                <td colspan="3"><input value="0" id="input" type="text"></td>
+                <td><button onclick="clean()">C</button></td>
+            </tr>
+            <tr>
+                <td><button onclick="dis('1')">1</button></td>
+                <td><button onclick="dis('2')">2</button></td>
+                <td><button onclick="dis('3')">3</button></td>
+                <td><button onclick="dis('+')">+</button></td>
+
+            </tr>
+            <tr>
+                <td><button onclick="dis('4')">4</button></td>
+                <td><button onclick="dis('5')">5</button></td>
+                <td><button onclick="dis('6')">6</button></td>
+                <td><button onclick="dis('-')">-</button></td>
+
+            </tr>
+            <tr>
+                <td><button onclick="dis('7')">7</button></td>
+                <td><button onclick="dis('8')">8</button></td>
+                <td><button onclick="dis('9')">9</button></td>
+                <td><button onclick="dis('*')">*</button></td>
+
+            </tr>
+            <tr>
+                <td><button onclick="dis('0')">0</button></td>
+                <td><button onclick="dis('.')">.</button></td>
+                <td><button onclick="dis('/')">/</button></td>
+                <td><button onclick="solve()">=</button></td>
+
+
+            </tr>
+        </table>
+
+    </main>
+
+
+    <script>
+        function dis(x) {
+            if (document.getElementById("input").value == 0) {
+                document.getElementById("input").value = "";
+                document.getElementById("input").value = x;
+            } else {
+                document.getElementById("input").value += x;
+
+            }
+
+        }
+
+        function solve() {
+            var x = document.getElementById("input").value;
+            var y = eval(x);
+            document.getElementById("input").value = y;
+        }
+
+        function clean() {
+            document.getElementById("input").value = 0;
+        }
+    </script>
+
+
 </body>
+
 </html>
